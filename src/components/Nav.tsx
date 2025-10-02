@@ -17,7 +17,7 @@ export default function Nav() {
     w-9/12    /* 91.666% width on mobile */
     sm:w-10/12 /* 83.333% on small screens */
     md:w-full  /* 100% on medium and up */
-    max-w-3xl  /* caps width on desktop */
+    max-w-6xl  /* caps width on desktop */
 
     h-16
 
@@ -35,10 +35,13 @@ export default function Nav() {
             Home
           </a>
           <a href="#" className="hover:text-gray-400 transition-colors">
+            About
+          </a>
+          <a href="#" className="hover:text-gray-400 transition-colors">
             Services
           </a>
           <a href="#" className="hover:text-gray-400 transition-colors">
-            About
+            Projects
           </a>
           <a href="#" className="hover:text-gray-400 transition-colors">
             Contact
@@ -68,13 +71,19 @@ export default function Nav() {
             href="#"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
+            About
+          </a>
+          <a
+            href="#"
+            className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
+          >
             Services
           </a>
           <a
             href="#"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
-            About
+            Projects
           </a>
           <a
             href="#"

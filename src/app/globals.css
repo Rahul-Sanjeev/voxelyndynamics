@@ -120,3 +120,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+.neon-orange {
+  color: #FF5F1F;
+  /* Neon orange hex color */
+  text-shadow:
+    0 0 0px #ff5f1fdb,
+    0 0 0px #ff5f1fdb,
+    0 0 0px #ff5f1fdb,
+    0 0 0px #ff5f1fdb;
+}
