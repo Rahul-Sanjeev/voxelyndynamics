@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { michroma } from "@/lib/fonts";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,21 +32,30 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center space-x-6">
-          <a href="#" className="hover:text-gray-400 transition-colors">
+          <Link href="/" className="hover:text-gray-400 transition-colors">
             Home
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
+          </Link>
+          <Link href="/about" className="hover:text-gray-400 transition-colors">
             About
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
+          </Link>
+          <Link
+            href="/services"
+            className="hover:text-gray-400 transition-colors"
+          >
             Services
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
+          </Link>
+          <Link
+            href="/projects"
+            className="hover:text-gray-400 transition-colors"
+          >
             Projects
-          </a>
-          <a href="#" className="hover:text-gray-400 transition-colors">
+          </Link>
+          <Link
+            href="/contact"
+            className="hover:text-gray-400 transition-colors"
+          >
             Contact
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -61,36 +71,36 @@ export default function Nav() {
       {/* Mobile dropdown */}
       {mobileOpen && (
         <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-11/12 max-w-sm bg-white bg-opacity-90 backdrop-blur-md rounded-lg shadow-lg py-4 md:hidden text-center">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/about"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
             About
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/services"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
             Services
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/projects"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
             Projects
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/contact"
             className="block px-6 py-2 text-black hover:bg-gray-200 transition-colors"
           >
             Contact
-          </a>
+          </Link>
         </div>
       )}
     </nav>
