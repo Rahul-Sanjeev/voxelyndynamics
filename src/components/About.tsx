@@ -34,7 +34,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6 }}
-            className="inline-block"
+            className="block"
             style={{ color: titles[idx].color }}
           >
             {titles[idx].text}

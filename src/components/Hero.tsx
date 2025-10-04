@@ -1,14 +1,22 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { michroma } from "@/lib/fonts";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function Hero() {
+interface HeroProps {
+  shouldPlayVideo: boolean;
+}
+
+export default function Hero({ shouldPlayVideo }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // You can pass a callback prop for preloader if needed, or control it here
+  useEffect(() => {
+    if (shouldPlayVideo && videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [shouldPlayVideo]);
 
   return (
     <section className="relative h-screen overflow-hidden">
@@ -19,7 +27,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        autoPlay
+        preload="metadata"
       >
         <source src="/videos/video2.mp4" type="video/mp4" />
       </video>
@@ -30,7 +38,7 @@ export default function Hero() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       />
 
-      {/* Heading Content */}
+      {/* Hero Content */}
       <div className="relative z-40 flex items-center justify-center min-h-screen px-4">
         <div className={`text-center ${michroma.className}`}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
@@ -42,7 +50,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll down animation */}
+      {/* Scroll Down Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: -10 }}
