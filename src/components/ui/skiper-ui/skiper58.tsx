@@ -46,7 +46,7 @@ export const Skiper58 = () => {
           <div className="relative flex items-start">
             <TextRoll
               center
-              className={`text-3xl sm:text-2xl md:text-5xl font-extrabold uppercase leading-[0.8] tracking-tight sm:tracking-normal ${item.color}`}
+              className={`text-xl sm:text-3xl md:text-5xl font-extrabold uppercase leading-none tracking-tight sm:tracking-normal ${item.color}`}
             >
               {item.name}
             </TextRoll>
@@ -77,7 +77,7 @@ const TextRoll: React.FC<{
         {children.split(" ").map((word, wordIndex) => (
           <span
             key={wordIndex}
-            className="inline-flex space-x-2 mr-3 sm:mr-6 flex-wrap break-words"
+            className="inline-flex mr-4 sm:mr-6 flex-wrap break-words"
           >
             {word.split("").map((letter, letterIndex) => {
               const delay = center
@@ -112,7 +112,7 @@ const TextRoll: React.FC<{
         {children.split(" ").map((word, wordIndex) => (
           <span
             key={`second-${wordIndex}`}
-            className="inline-flex space-x-2 mr-6"
+            className="inline-flex mr-2 sm:mr-4"
           >
             {word.split("").map((letter, letterIndex) => {
               const delay = center

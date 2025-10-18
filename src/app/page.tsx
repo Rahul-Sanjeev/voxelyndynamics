@@ -6,6 +6,7 @@ import Nav from "@/components/Nav";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -28,6 +29,7 @@ export default function Home() {
         <Nav />
         <About />
         <Services />
+        <Projects />
       </main>
     </>
   );

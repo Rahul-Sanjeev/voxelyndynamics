@@ -6,8 +6,6 @@ import { Skiper58 } from "../components/ui/skiper-ui/skiper58";
 export default function Services() {
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Overlay */}
-
       {/* Fullscreen video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
