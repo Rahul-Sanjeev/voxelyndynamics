@@ -7,6 +7,9 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
+// import { SpringMouseFollow } from "../components/ui/skiper-ui/skiper61";
 
 export default function Home() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -26,10 +29,13 @@ export default function Home() {
         style={{ opacity: showPreloader ? 0 : 1 }}
       >
         <Hero shouldPlayVideo={!showPreloader} />
+
         <Nav />
         <About />
         <Services />
         <Projects />
+        <Contact />
+        <Footer />
       </main>
     </>
   );

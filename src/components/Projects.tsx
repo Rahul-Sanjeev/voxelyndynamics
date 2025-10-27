@@ -46,7 +46,7 @@ export default function Projects() {
 
       {/* 2. CRITICAL FIX: Add a dummy element to force the page to scroll. */}
       {/* A height of 300vh (3 times the viewport height) is safe for 3 cards. */}
-      <div className="h-[400vh] w-full bg-black text-white p-20 flex items-center justify-center text-4xl"></div>
+      <div className="w-full bg-black text-white p-20 flex items-center justify-center text-4xl h-[350vh] md:h-[300vh]"></div>
     </>
   );
 }
