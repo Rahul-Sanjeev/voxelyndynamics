@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MultilingualPreloader from "../components/ui/skiper-ui/MultilingualPreloader";
 import Nav from "@/components/Nav";
 import About from "@/components/About";
@@ -17,6 +17,11 @@ export default function Home() {
   const handlePreloaderFinish = () => {
     setShowPreloader(false);
   };
+
+  useEffect(() => {
+    // Scroll to top on component mount and after preloader disappears
+    window.scrollTo(0, 0);
+  }, [showPreloader]);
 
   return (
     <>

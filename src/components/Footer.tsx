@@ -1,5 +1,6 @@
 import React from "react";
 import { michroma } from "@/lib/fonts";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const Footer: React.FC = () => {
           {/* Brand/Logo and Slogan */}
           <div>
             <div className="flex items-center gap-3 mb-2">
-              {/* <span className="text-2xl"></span> */}
+              {/* Brand Logo or Emoji can go here */}
               <span className="font-bold text-xl tracking-wide text-white">
                 Voxelyn Dynamics
               </span>
@@ -20,21 +21,26 @@ const Footer: React.FC = () => {
               Your Next Digital Move
             </p>
           </div>
-          {/* Navigation Links */}
+
+          {/* Navigation Links matching Nav component */}
           <nav className="flex flex-col sm:flex-row gap-4 md:gap-8 text-base">
-            <a href="#about" className="hover:text-blue-400 transition">
+            <Link href="/" className="hover:text-blue-400 transition">
+              Home
+            </Link>
+            <Link href="/about" className="hover:text-blue-400 transition">
               About
-            </a>
-            <a href="#services" className="hover:text-blue-400 transition">
+            </Link>
+            <Link href="/services" className="hover:text-blue-400 transition">
               Services
-            </a>
-            <a href="#projects" className="hover:text-blue-400 transition">
+            </Link>
+            <Link href="/projects" className="hover:text-blue-400 transition">
               Projects
-            </a>
-            <a href="#contact" className="hover:text-blue-400 transition">
+            </Link>
+            <Link href="/contact" className="hover:text-blue-400 transition">
               Contact
-            </a>
+            </Link>
           </nav>
+
           {/* Social Links */}
           <div className="flex gap-5 items-center mt-4 md:mt-0">
             <a
@@ -44,6 +50,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
+              {/* SVG Icon */}
               <svg
                 className="w-6 h-6 fill-gray-400 group-hover:fill-blue-500 transition"
                 viewBox="0 0 24 24"
