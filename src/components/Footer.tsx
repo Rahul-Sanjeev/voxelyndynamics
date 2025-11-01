@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
           {/* Social Links */}
           <div className="flex gap-5 items-center mt-4 md:mt-0">
             <a
-              href="https://linkedin.com"
+              href="http://www.linkedin.com/company/voxelyndynamics"
               aria-label="LinkedIn"
               className="group"
               target="_blank"
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
               </svg>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://instagram.com/voxelyndynamics"
               aria-label="Instagram"
               className="group"
               target="_blank"
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
               </svg>
             </a>
             <a
-              href="mailto:contact@yourcompany.com"
+              href="mailto:voxelyndynamics@gmail.com"
               aria-label="Email"
               className="group"
             >
