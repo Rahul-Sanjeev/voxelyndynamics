@@ -2,6 +2,7 @@ import React from "react";
 import { michroma } from "@/lib/fonts";
 import Link from "next/link";
 import { Linkedin, Instagram, Mail } from "lucide-react";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
@@ -12,8 +13,14 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-8">
           {/* Brand/Logo and Slogan */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <div className="flex items-center gap-3 mb-2">
-              {/* Brand Logo or Emoji can go here */}
+            <div className="flex flex-col md:flex-row items-center gap-3 mb-2">
+              <Image
+                src="/images/Logo/vdFooter.png"
+                alt="Voxelyn Dynamics Logo"
+                width={50}
+                height={50}
+                className="w-12 h-12 object-contain"
+              />
               <span className="font-bold text-xl tracking-wide text-white">
                 Voxelyn Dynamics
               </span>

@@ -5,6 +5,8 @@ import { michroma } from "@/lib/fonts";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
+import Image from "next/image";
+
 export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -28,7 +30,19 @@ export default function Nav() {
   `}
     >
       <div className="flex items-center justify-between w-full">
-        <div className="text-black font-bold text-lg">Voxelyn Dynamics</div>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image
+            src="/images/Logo/vd.png"
+            alt="Voxelyn Dynamics Logo"
+            width={40}
+            height={40}
+            className="w-8 h-8 sm:w-10 sm:h-10 object-contain transition-transform group-hover:scale-105"
+            priority
+          />
+          <span className="text-black font-bold text-sm sm:text-lg whitespace-nowrap">
+            Voxelyn Dynamics
+          </span>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center space-x-6">
