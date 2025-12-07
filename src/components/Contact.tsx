@@ -1,12 +1,44 @@
+"use client";
+
 import React, { useState } from "react";
 import { michroma } from "@/lib/fonts";
 const Contact: React.FC = () => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("Thank you for reaching out!");
-    e.currentTarget.reset();
+    const form = e.currentTarget; // Capture reference before await
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatus("success");
+      form.reset(); // Use captured reference
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage((error as Error).message || "Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -45,7 +77,7 @@ const Contact: React.FC = () => {
 
             <div className={`flex items-center mb-2 ${michroma.className}`}>
               <span className="mr-2">📧</span>
-              <span>contact@voxelyndyamics.com</span>
+              <span>voxelyndyamics@gmail.com</span>
             </div>
             <div className="flex items-center">
               <span className="mr-2">📞</span>
@@ -58,11 +90,18 @@ const Contact: React.FC = () => {
             onSubmit={handleSubmit}
             className={`bg-transparent bg-opacity-90 rounded-xl shadow-lg p-8 space-y-6 backdrop-blur-sm text-white ${michroma.className}`}
           >
-            {status && (
+            {status === "success" && (
               <div
-                className={`text-green-600 mb-2 text-center ${michroma.className}`}
+                className={`text-green-400 bg-green-900/50 p-3 rounded mb-2 text-center border border-green-500 ${michroma.className}`}
               >
-                {status}
+                Thank you! We will get back to you soon.
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                className={`text-red-400 bg-red-900/50 p-3 rounded mb-2 text-center border border-red-500 ${michroma.className}`}
+              >
+                {errorMessage}
               </div>
             )}
             <div>
@@ -77,7 +116,8 @@ const Contact: React.FC = () => {
                 name="name"
                 type="text"
                 required
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
+                disabled={status === "loading"}
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition disabled:opacity-50"
                 placeholder="Your Name"
               />
             </div>
@@ -93,7 +133,8 @@ const Contact: React.FC = () => {
                 name="email"
                 type="email"
                 required
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
+                disabled={status === "loading"}
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition disabled:opacity-50"
                 placeholder="you@example.com"
               />
             </div>
@@ -109,15 +150,17 @@ const Contact: React.FC = () => {
                 name="message"
                 required
                 rows={4}
-                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition resize-vertical"
+                disabled={status === "loading"}
+                className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-200 focus:outline-none transition resize-vertical disabled:opacity-50"
                 placeholder="How can we help you?"
               />
             </div>
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-700 to-purple-700 text-white font-bold hover:from-blue-800 hover:to-purple-800 transition"
+              disabled={status === "loading"}
+              className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-700 to-purple-700 text-white font-bold hover:from-blue-800 hover:to-purple-800 transition disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Send Message
+              {status === "loading" ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
@@ -125,5 +168,4 @@ const Contact: React.FC = () => {
     </div>
   );
 };
-
 export default Contact;

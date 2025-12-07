@@ -1,12 +1,12 @@
 import Nav from "@/components/Nav";
-import About from "@/components/About";
+import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 
-export default function AboutPage() {
+export default function ProjectsPage() {
   return (
     <main>
       <Nav />
-      <About />
+      <Projects />
       <Footer />
     </main>
   );
