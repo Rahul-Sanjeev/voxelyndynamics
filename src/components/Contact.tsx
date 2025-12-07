@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-center min-h-screen p-6 overflow-hidden">
+    <div className="relative flex flex-col md:flex-row items-center justify-center min-h-screen w-full p-4 sm:p-6 overflow-x-hidden overflow-y-auto">
       {/* Video background */}
       <video
         autoPlay

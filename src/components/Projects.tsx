@@ -34,7 +34,7 @@ export default function Projects() {
         <h2
           className={`text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 ${michroma.className}`}
         >
-          What We Done
+          Projects
         </h2>
         <StickyCard002
           cards={cards}
